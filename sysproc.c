@@ -13,17 +13,38 @@ sys_fork(void)
   return fork();
 }
 
+//Lab_1
 int
 sys_exit(void)
 {
-  exit();
+  int status;
+  if(argint(0, &status) < 0){
+      return -1;
+  }
+  exit(status);
   return 0;  // not reached
 }
 
+//Lab_1
 int
 sys_wait(void)
 {
-  return wait();
+    char** status = 0;
+    argptr(0, status, sizeof(status));
+    int *w_status = (int*)*status;
+    return wait(w_status);
+}
+
+//Lab_1
+int
+sys_waitpid(void)
+{
+    int pid;
+    char** status = 0;
+    argptr(1, status, sizeof(status));
+    argint(0, &pid);
+    int *w_status = (int*)*status;
+    return waitpid(pid, w_status, 0);
 }
 
 int
@@ -88,4 +109,12 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+int
+sys_add(void)
+{
+  int a = 2;
+  int b = 2020;
+  return a+b;
 }
