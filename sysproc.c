@@ -39,8 +39,8 @@ sys_wait(void)
 int
 sys_waitpid(void)
 {
-    int pid;
     char** status = 0;
+    int pid = 0;
     argptr(1, status, sizeof(status));
     argint(0, &pid);
     int *w_status = (int*)*status;
