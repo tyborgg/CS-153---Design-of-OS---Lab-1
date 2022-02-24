@@ -115,6 +115,8 @@ void            procdump(void);
 void            scheduler(void) __attribute__((noreturn));
 void            sched(void);
 void            setproc(struct proc*);
+int             set_prior(int); //Lab_2
+int             get_prior(void); //Lab_2
 void            sleep(void*, struct spinlock*);
 void            userinit(void);
 int             wait(int *status); //Lab_1

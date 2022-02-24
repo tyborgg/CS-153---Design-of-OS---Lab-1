@@ -118,3 +118,26 @@ sys_add(void)
   int b = 2020;
   return a+b;
 }
+
+//Lab_2
+int
+sys_set_prior(void)
+{
+    int priority = 0;
+    argint(0, &priority);
+
+    set_prior(priority);
+
+    return 0;
+}
+
+//Lab_2
+int
+sys_get_prior(void)
+{
+    int priority = 0;
+
+    argint(0, &priority);
+
+    return get_prior();
+}
