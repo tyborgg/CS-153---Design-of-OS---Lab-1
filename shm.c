@@ -27,7 +27,7 @@ void shminit() {
     }
     release(&(shm_table.lock));
 }
-
+//test
 int shm_open(int id, char **pointer) {
     struct proc *curproc = myproc();
     acquire(&(shm_table.lock));
